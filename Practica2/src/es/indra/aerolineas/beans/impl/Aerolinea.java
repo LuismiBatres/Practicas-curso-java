@@ -1,16 +1,18 @@
 /**
  * 
  */
-package es.indra.aerolineas.beans;
+package es.indra.aerolineas.beans.impl;
 
 import java.util.Arrays;
+
+import es.indra.aerolineas.beans.IAerolineas;
 
 /**
  * @author josejarizav
  *
  *
  */
-public class Aerolinea {
+public class Aerolinea implements IAerolineas {
 	
 	private int id;
 	private String nombre;
@@ -60,7 +62,7 @@ public class Aerolinea {
 		return "Aerolinea [id=" + id + ", nombre=" + nombre + ", vuelos=" + Arrays.toString(vuelos) + "]";
 	}
 	
-	
+	@Override
 	public void consultarVuelos(String origen) {
 		boolean existe=false;
 		for (int i=0;i<this.vuelos.length;i++) {
@@ -74,6 +76,7 @@ public class Aerolinea {
 		}
 	}
 	
+	@Override
 	public void consultarVuelos(String origen,String destino) {
 		boolean existe=false;
 		for (int i=0;i<this.vuelos.length;i++) {
@@ -87,6 +90,7 @@ public class Aerolinea {
 		}
 	}
 
+	@Override
 	public void anularVuelos(String...vuelos) {
 		System.out.println("Numeo de vuelos a anular: "+ vuelos.length);
 	}

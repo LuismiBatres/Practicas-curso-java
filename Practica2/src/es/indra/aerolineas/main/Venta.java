@@ -3,6 +3,8 @@
  */
 package es.indra.aerolineas.main;
 import es.indra.aerolineas.beans.*;
+import es.indra.aerolineas.beans.impl.*;
+
 /**
  * @author josejarizav
  *
@@ -46,16 +48,17 @@ public class Venta {
 		p.setApellido("Ariza Valderrama");
 		p.setVuelos(vuelosPasajero);
 		
-		aa.consultarVuelos("VLC");
-		
+		//aa.consultarVuelos("VLC");
+		consultar1(aa,"NAR");
 		System.out.println("***************************************");
-		aa.anularVuelos();
+		/*aa.anularVuelos();
 		aa.anularVuelos("hola");
-		aa.anularVuelos("hola","vuelos");
+		aa.anularVuelos("hola","vuelos");*/
+		anular(aa);
 		System.out.println("***************************************");
 		
-		aa.consultarVuelos("MAD", "NAR");
-		
+		//aa.consultarVuelos("MAD", "NAR");
+		consultar2(aa, "MAD","VLC");
 		System.out.println("*************************************************************************");
 		
 		System.out.println("|\tBienvenidos a aerolineas ".concat(aa.getNombre()));
@@ -71,9 +74,21 @@ public class Venta {
 		
 		System.out.println("*************************************************************************");
 		
-		
-		
+		System.out.println(p.solicitarInformacion());
+		System.out.println("*************************");
+		System.out.println(emp.solicitarInformacion());
 
 	}
 
+	public static void anular(IAerolineas a) {
+		a.anularVuelos("asas","hola");
+	}
+		
+	public static void consultar1(IAerolineas a,String origen) {
+		a.consultarVuelos(origen);
+	}
+	
+	public static void consultar2(IAerolineas a,String origen,String destino) {
+		a.consultarVuelos(origen, destino);
+	}
 }

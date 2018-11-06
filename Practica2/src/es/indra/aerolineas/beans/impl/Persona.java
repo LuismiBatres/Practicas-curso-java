@@ -1,6 +1,6 @@
-package es.indra.aerolineas.beans;
+package es.indra.aerolineas.beans.impl;
 
-public class Persona {
+public abstract class Persona {
 	protected String nombre;
 	protected String apellido;
 	protected String dni;
@@ -21,4 +21,5 @@ public class Persona {
 		this.nombre = nombre;
 	}
 
+	public abstract String solicitarInformacion();
 }
