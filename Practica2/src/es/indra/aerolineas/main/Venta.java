@@ -27,7 +27,7 @@ public class Venta {
 
 		Vuelo[] vuelos = creaVuelos();
 		
-		Aerolinea aa = new Aerolinea(10, "American Airlines",vuelos);
+		IAerolineas aa = new Aerolinea(10, "American Airlines",vuelos);
 		
 		Empleado emp=new Empleado();
 		emp.setNombre("Juan Alberto");
@@ -48,17 +48,17 @@ public class Venta {
 		p.setApellido("Ariza Valderrama");
 		p.setVuelos(vuelosPasajero);
 		
-		//aa.consultarVuelos("VLC");
-		consultar1(aa,"NAR");
+		aa.consultarVuelos("VLC");
+		//consultar1(aa,"NAR");
 		System.out.println("***************************************");
-		/*aa.anularVuelos();
+		aa.anularVuelos();
 		aa.anularVuelos("hola");
-		aa.anularVuelos("hola","vuelos");*/
-		anular(aa);
+		aa.anularVuelos("hola","vuelos");
+		//anular(aa);
 		System.out.println("***************************************");
 		
-		//aa.consultarVuelos("MAD", "NAR");
-		consultar2(aa, "MAD","VLC");
+		aa.consultarVuelos("MAD", "NAR");
+		//consultar2(aa, "MAD","VLC");
 		System.out.println("*************************************************************************");
 		
 		System.out.println("|\tBienvenidos a aerolineas ".concat(aa.getNombre()));
