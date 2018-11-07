@@ -18,12 +18,13 @@ public class GenericsDesconocidos {
 			System.out.println(n);
 		}*/
 		
-		List<? super Integer> listadoInteger=new ArrayList<>();
+		ArrayList<Integer> listadoInteger=new ArrayList<>();
 		listadoInteger.add(12);
 		listadoInteger.add(15);
 		listadoInteger.add(88);
 		listadoInteger.add(100);
 		//listadoInteger.add(15d);
+		
 		
 		for(int i=0;i<listadoInteger.size();i++) {
 			System.out.println(listadoInteger.get(i));
