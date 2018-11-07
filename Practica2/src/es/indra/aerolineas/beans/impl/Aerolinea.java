@@ -4,10 +4,12 @@
 package es.indra.aerolineas.beans.impl;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import es.indra.aerolineas.beans.IAerolineas;
+import es.indra.aerolineas.exceptions.ErrorLecturadeVuelosException;
 import es.indra.aerolineas.services.ReadFile;
 
 /**
@@ -78,14 +80,21 @@ public class Aerolinea implements IAerolineas {
 			System.out.println("Origen no valido");
 		}*/
 		ReadFile r=new ReadFile();
-		List<String>lista=r.retornarVuelos();
-		if(!lista.isEmpty() && lista !=null) {
-			for(String s:lista) {
-				System.out.println(s);
+		List<String> lista = new ArrayList<>();
+		try {
+			lista = r.retornarVuelos();
+			if(!lista.isEmpty() && lista !=null) {
+				for(String s:lista) {
+					System.out.println(s);
+				}
+			}else {
+				System.out.println("No se han encontrado vuelos");
 			}
-		}else {
-			System.out.println("No se han encontrado vuelos");
+		} catch (ErrorLecturadeVuelosException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		
 	}
 	
 	@Override
