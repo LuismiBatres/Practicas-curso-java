@@ -1,9 +1,9 @@
 *Estructura del proyecto
 Proyecto que busca presentar los vuelos disponibles de determinadas aerolíneas y asociarlos a los pasajeros
-**Paquetes y clases
+##Paquetes y clases
 El paquete raíz es es.indra.aerolinea
 
-***.beans
+###.beans
 Paquete para interfaces de beans
 
 *Paquetes
@@ -12,7 +12,7 @@ Paquete para interfaces de beans
 
 *IAerolinea: interfaz que define el comportamiento de la gestión de vuelos paquete para las implementaciones de interfaces o POJOs
 
-***.beans.impl
+###.beans.impl
 Paquete para las implementaciones de interfaces o POJOs
 
 *Clases*
@@ -40,8 +40,8 @@ Paquete para las implementaciones de interfaces o POJOs
 *Pasajero: clase que hereda de Persona y añade un array de vuelos:
   +vuelos[ ]: array de objetos Vuelo
 
-***.main
+###.main
   *Venta: clase que tiene método main que arranca la aplicación
 
-***.services
+###.services
   *ReadFile: clase que gestiona la lectura de archivos
