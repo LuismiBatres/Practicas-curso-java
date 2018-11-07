@@ -92,7 +92,8 @@ public class Aerolinea implements IAerolineas {
 			}
 		} catch (ErrorLecturadeVuelosException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 		
 	}

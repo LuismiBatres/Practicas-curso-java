@@ -34,7 +34,7 @@ public class ReadFile {
 	}
 	
 	public List<String> retornarVuelos1() throws IOException{
-		Path path= Paths.get("C:/Users/aula3/repositorios/Luismi/Practicas-curso-java/vuelos1.txt");
+		Path path= Paths.get("C:/Users/aula3/repositorios/Luismi/Practicas-curso-java/vuelos.txt");
 		//Path path =Paths.get("C:/Users/aula3/repositorios/CursoJava/vuelos1.txt");
 		List<String>lista=new ArrayList<String>();
 		lista=Files.readAllLines(path);

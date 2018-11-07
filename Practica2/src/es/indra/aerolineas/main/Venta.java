@@ -39,7 +39,6 @@ public class Venta {
 		Vuelo[] vuelosPasajero = {vuelos[0], vuelos[4]};
 		
 		aa.consultarVuelos("MAD");
-		System.out.println("***************************************");
 		/*p.id=10;
 		p.dni="1050K";
 		p.nombre="Jose Julian";
@@ -65,7 +64,8 @@ public class Venta {
 			aa.consultarVuelos("MAD", "NAR");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 		//consultar2(aa, "MAD","VLC");
 		System.out.println("*************************************************************************");
