@@ -1,4 +1,3 @@
-
 public class Limite<T> {
 
 	private T t;
