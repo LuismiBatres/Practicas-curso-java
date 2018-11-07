@@ -3,6 +3,7 @@
  */
 package es.indra.aerolineas.beans.impl;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -78,18 +79,18 @@ public class Aerolinea implements IAerolineas {
 		}*/
 		ReadFile r=new ReadFile();
 		List<String>lista=r.retornarVuelos();
-		if(lista.isEmpty()) {
-			System.out.println("No se han encontrado vuelos");
-		}else {
+		if(!lista.isEmpty() && lista !=null) {
 			for(String s:lista) {
 				System.out.println(s);
 			}
+		}else {
+			System.out.println("No se han encontrado vuelos");
 		}
 	}
 	
 	@Override
-	public void consultarVuelos(String origen,String destino) {
-		boolean existe=false;
+	public void consultarVuelos(String origen,String destino) throws IOException{
+		/*boolean existe=false;
 		for (int i=0;i<this.vuelos.length;i++) {
 			if(this.vuelos[i].getOrigen().equals(origen) && this.vuelos[i].getDestino().equals(destino)) {
 				System.out.println(this.vuelos[i].toString());
@@ -98,6 +99,15 @@ public class Aerolinea implements IAerolineas {
 		}
 		if(existe==false) {
 			System.out.println("Origen o destino no validos");
+		}*/
+		ReadFile r=new ReadFile();
+		List<String>lista=r.retornarVuelos1();
+		if(!lista.isEmpty() && lista !=null) {
+			for(String s:lista) {
+				System.out.println(s);
+			}
+		}else {
+			System.out.println("No se han encontrado vuelos");
 		}
 	}
 

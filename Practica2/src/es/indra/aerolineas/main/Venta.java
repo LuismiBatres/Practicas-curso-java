@@ -2,6 +2,8 @@
  * 
  */
 package es.indra.aerolineas.main;
+import java.io.IOException;
+
 import es.indra.aerolineas.beans.*;
 import es.indra.aerolineas.beans.impl.*;
 
@@ -59,7 +61,12 @@ public class Venta {
 		//anular(aa);
 		System.out.println("***************************************");
 		
-		aa.consultarVuelos("MAD", "NAR");
+		try {
+			aa.consultarVuelos("MAD", "NAR");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		//consultar2(aa, "MAD","VLC");
 		System.out.println("*************************************************************************");
 		
@@ -90,7 +97,7 @@ public class Venta {
 		a.consultarVuelos(origen);
 	}
 	
-	public static void consultar2(IAerolineas a,String origen,String destino) {
+	/*public static void consultar2(IAerolineas a,String origen,String destino) {
 		a.consultarVuelos(origen, destino);
-	}
+	}*/
 }
