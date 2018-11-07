@@ -4,8 +4,10 @@
 package es.indra.aerolineas.beans.impl;
 
 import java.util.Arrays;
+import java.util.List;
 
 import es.indra.aerolineas.beans.IAerolineas;
+import es.indra.aerolineas.services.ReadFile;
 
 /**
  * @author josejarizav
@@ -64,7 +66,7 @@ public class Aerolinea implements IAerolineas {
 	
 	@Override
 	public void consultarVuelos(String origen) {
-		boolean existe=false;
+		/*boolean existe=false;
 		for (int i=0;i<this.vuelos.length;i++) {
 			if(this.vuelos[i].getOrigen().equals(origen)) {
 				System.out.println(this.vuelos[i].toString());
@@ -73,6 +75,11 @@ public class Aerolinea implements IAerolineas {
 		}
 		if(existe==false) {
 			System.out.println("Origen no valido");
+		}*/
+		ReadFile r=new ReadFile();
+		List<String>lista=r.retornarVuelos();
+		for(String s:lista) {
+			System.out.println(s);
 		}
 	}
 	
@@ -89,6 +96,7 @@ public class Aerolinea implements IAerolineas {
 			System.out.println("Origen o destino no validos");
 		}
 	}
+
 
 	@Override
 	public void anularVuelos(String...vuelos) {

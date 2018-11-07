@@ -37,9 +37,7 @@ public class Venta {
 		
 		Vuelo[] vuelosPasajero = {vuelos[0], vuelos[4]};
 		
-		ReadFile r=new ReadFile();
-		
-		r.retornarVuelos();
+		aa.consultarVuelos("MAD");
 		System.out.println("***************************************");
 		/*p.id=10;
 		p.dni="1050K";
@@ -53,7 +51,7 @@ public class Venta {
 		p.setApellido("Ariza Valderrama");
 		p.setVuelos(vuelosPasajero);
 		
-		aa.consultarVuelos("VLC");
+		//aa.consultarVuelos("VLC");
 		//consultar1(aa,"NAR");
 		System.out.println("***************************************");
 		aa.anularVuelos();
