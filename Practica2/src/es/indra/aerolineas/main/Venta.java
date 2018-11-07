@@ -3,6 +3,8 @@
  */
 package es.indra.aerolineas.main;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Map;
 
 import es.indra.aerolineas.beans.*;
 import es.indra.aerolineas.beans.impl.*;
@@ -28,15 +30,35 @@ public class Venta {
 	public static void main(String[] args) {
 
 		Vuelo[] vuelos = creaVuelos();
+		ArrayList<Billete>billete=new ArrayList<>();
+		IAerolineas aa = new Aerolinea(10, "American Airlines",vuelos,billete);
 		
-		IAerolineas aa = new Aerolinea(10, "American Airlines",vuelos);
+		
 		
 		Empleado emp=new Empleado();
 		emp.setNombre("Juan Alberto");
 		
 		Pasajero p = new Pasajero();
-		
 		Vuelo[] vuelosPasajero = {vuelos[0], vuelos[4]};
+		p.setId(10);
+		p.setDni("10");
+		p.setNombre("Jose Julian");
+		p.setApellido("Ariza Valderrama");
+		p.setVuelos(vuelosPasajero);
+		
+		
+		String fecha="12";
+		String asiento="123";
+		Vuelo v=p.getVuelos()[0];
+		aa.crearBillete(p, fecha, asiento,v);
+		Map<String,ArrayList> lista=aa.cargarHashMap(aa.getBilletes(), fecha);
+		
+		for(Map.Entry<String, ArrayList> entry : lista.entrySet()) {
+			System.out.println("Fecha: "+ entry.getKey());
+			for(int i=0;i<entry.getValue().size();i++) {
+				System.out.println(entry.getValue().get(i).toString());
+			}
+		}
 		
 		aa.consultarVuelos("MAD");
 		/*p.id=10;
@@ -45,11 +67,7 @@ public class Venta {
 		p.apellido="Ariza";
 		p.vuelos=vuelosPasajero;*/
 		
-		p.setId(10);
-		p.setDni("10");
-		p.setNombre("Jose Julian");
-		p.setApellido("Ariza Valderrama");
-		p.setVuelos(vuelosPasajero);
+		
 		
 		//aa.consultarVuelos("VLC");
 		//consultar1(aa,"NAR");

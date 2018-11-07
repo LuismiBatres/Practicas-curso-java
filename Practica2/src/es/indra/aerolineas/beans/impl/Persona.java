@@ -22,4 +22,11 @@ public abstract class Persona {
 	}
 
 	public abstract String solicitarInformacion();
+
+	@Override
+	public String toString() {
+		return "Persona [nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", id=" + id + "]";
+	}
+	
+	
 }

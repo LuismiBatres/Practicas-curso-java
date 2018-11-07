@@ -6,7 +6,9 @@ package es.indra.aerolineas.beans.impl;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import es.indra.aerolineas.beans.IAerolineas;
 import es.indra.aerolineas.exceptions.ErrorLecturadeVuelosException;
@@ -22,7 +24,17 @@ public class Aerolinea implements IAerolineas {
 	private int id;
 	private String nombre;
 	private Vuelo[] vuelos = new Vuelo[10];
+	private ArrayList<Billete> billetes=new ArrayList<Billete>();
 	
+	
+	public ArrayList<Billete> getBilletes() {
+		return billetes;
+	}
+
+	public void setBilletes(ArrayList<Billete> billetes) {
+		this.billetes = billetes;
+	}
+
 	public Aerolinea() {		
 	}
 
@@ -31,11 +43,12 @@ public class Aerolinea implements IAerolineas {
 	 * @param nombre
 	 * @param vuelos
 	 */
-	public Aerolinea(int id, String nombre, Vuelo[] vuelos) {
+	public Aerolinea(int id, String nombre, Vuelo[] vuelos,ArrayList<Billete>billetes) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.vuelos = vuelos;
+		this.billetes=billetes;
 	}
 
 	public int getId() {
@@ -125,6 +138,27 @@ public class Aerolinea implements IAerolineas {
 	@Override
 	public void anularVuelos(String...vuelos) {
 		System.out.println("Numeo de vuelos a anular: "+ vuelos.length);
+	}
+	
+	/*public ArrayList<Billete> cargarArrayFechas(){
+		Arr
+	}*/
+	
+	public void crearBillete(Persona p,String fecha,String asiento,Vuelo vuelo) {
+		Billete b=new Billete(p,fecha,asiento,vuelo);
+		this.billetes.add(b);
+	}
+	
+	public Map<String,ArrayList> cargarHashMap(ArrayList<Billete>billetes,String fecha){
+		Map<String,ArrayList> lista= new HashMap<String,ArrayList>();
+		ArrayList<Billete>array=new ArrayList<>();
+		for(Billete b: billetes) {
+			if(fecha.equals(b.getFecha())) {
+				array.add(b);
+			}
+		}
+		lista.put(fecha, billetes);
+		return lista;
 	}
 
 }
