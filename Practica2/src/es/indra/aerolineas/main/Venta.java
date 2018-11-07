@@ -4,7 +4,6 @@
 package es.indra.aerolineas.main;
 import es.indra.aerolineas.beans.*;
 import es.indra.aerolineas.beans.impl.*;
-import es.indra.aerolineas.services.ReadFile;
 
 /**
  * @author josejarizav
