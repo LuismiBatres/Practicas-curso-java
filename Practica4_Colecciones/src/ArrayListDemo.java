@@ -15,7 +15,7 @@ public class ArrayListDemo {
 	public static void main(String[] args) {
 		List<Integer>listaGenerada=cargaArrayList();
 		
-		System.out.println(listaGenerada.size());
+		System.out.println("Tamaño lista inicial: "+listaGenerada.size());
 		
 		for(int elemento:listaGenerada) {
 			System.out.println("Elemento: " + elemento);
