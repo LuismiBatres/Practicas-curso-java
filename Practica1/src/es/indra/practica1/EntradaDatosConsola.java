@@ -22,13 +22,13 @@ public class EntradaDatosConsola {
 	public static void escribirInputStreamReader() {
 		InputStreamReader cin = null;
 		try {
-		cin = new InputStreamReader(System.in);
-		System.out.println("Ingrese texto!, 'q' para salir.");
-		char c;
-		do {
-		c = (char) cin.read();
-		System.out.print(c);
-		} while(c != 'q');
+				cin = new InputStreamReader(System.in);
+				System.out.println("Ingrese texto!, 'q' para salir.");
+				char c;
+			do {
+				c = (char) cin.read();
+				System.out.print(c);
+			} while(c != 'q');
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -38,13 +38,12 @@ public class EntradaDatosConsola {
 			cin.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+			e.printStackTrace();}
 			}
 		}
 	}
 	
 	public static void main(String[] margs) {
-		
+		escribirScanner();
 	}
 }
