@@ -27,7 +27,7 @@ Paquete para las implementaciones de interfaces o POJOs
   + numeroPasajeros: entero para indicar la capacidad de pasajeros
   + disponible: boolean que indica si el vuelo está disponible
 
- *Persona: clase abstracta para representar a todas las personas del sisyema.Contiene
+ * Persona: clase abstracta para representar a todas las personas del sisyema.Contiene
   + nombre
   + apellido
   + dni
