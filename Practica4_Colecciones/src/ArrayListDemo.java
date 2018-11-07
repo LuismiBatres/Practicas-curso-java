@@ -30,7 +30,6 @@ public class ArrayListDemo {
 		if(!listaGenerada.isEmpty()) {
 			listaGenerada.clear();
 		}
-		
 		System.out.println("Tamaño actual de la lista: "+ listaGenerada.size());
 	}
 
