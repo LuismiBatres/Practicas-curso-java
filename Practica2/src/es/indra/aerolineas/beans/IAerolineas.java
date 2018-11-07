@@ -14,7 +14,7 @@ public interface IAerolineas {
 	public void anularVuelos(String...vuelos);
 	public Vuelo[] getVuelos();
 	public String getNombre();
-	public Map<String,ArrayList> cargarHashMap(ArrayList<Billete>billetes,String fecha);
+	public Map<String,ArrayList> cargarHashMap(ArrayList<Billete>billetes);
 	public void crearBillete(Persona p,String fecha,String asiento,Vuelo vuelo);
 	public ArrayList<Billete> getBilletes() ;
 }

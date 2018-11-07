@@ -47,25 +47,32 @@ public class Venta {
 		p.setVuelos(vuelosPasajero);
 		
 		
-		String fecha="12";
-		String asiento="123";
+		String fecha1="12";
+		String asiento1="123";
 		Vuelo v=p.getVuelos()[0];
-		aa.crearBillete(p, fecha, asiento,v);
-		Map<String,ArrayList> lista=aa.cargarHashMap(aa.getBilletes(), fecha);
+		aa.crearBillete(p, fecha1, asiento1,v);
+		
+		String fecha2="12";
+		String asiento2="120";
+		Vuelo v2=p.getVuelos()[0];
+		aa.crearBillete(p, fecha2, asiento2,v2);
+		
+		Map<String,ArrayList> lista=aa.cargarHashMap(aa.getBilletes());
 		
 		for(Map.Entry<String, ArrayList> entry : lista.entrySet()) {
 			System.out.println("Fecha: "+ entry.getKey());
 			for(int i=0;i<entry.getValue().size();i++) {
 				System.out.println(entry.getValue().get(i).toString());
+				System.out.println("hola");
 			}
 		}
 		
-		aa.consultarVuelos("MAD");
-		/*p.id=10;
+		/*aa.consultarVuelos("MAD");
+		p.id=10;
 		p.dni="1050K";
 		p.nombre="Jose Julian";
 		p.apellido="Ariza";
-		p.vuelos=vuelosPasajero;*/
+		p.vuelos=vuelosPasajero;
 		
 		
 		
@@ -103,7 +110,7 @@ public class Venta {
 		
 		System.out.println(p.solicitarInformacion());
 		System.out.println("*************************");
-		System.out.println(emp.solicitarInformacion());
+		System.out.println(emp.solicitarInformacion());*/
 
 	}
 

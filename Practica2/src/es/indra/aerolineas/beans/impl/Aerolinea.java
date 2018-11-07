@@ -149,15 +149,26 @@ public class Aerolinea implements IAerolineas {
 		this.billetes.add(b);
 	}
 	
-	public Map<String,ArrayList> cargarHashMap(ArrayList<Billete>billetes,String fecha){
+	public Map<String,ArrayList> cargarHashMap(ArrayList<Billete>billetes){
 		Map<String,ArrayList> lista= new HashMap<String,ArrayList>();
 		ArrayList<Billete>array=new ArrayList<>();
+		String fecha;
 		for(Billete b: billetes) {
-			if(fecha.equals(b.getFecha())) {
-				array.add(b);
+			for(Billete bille:billetes){
+				if(b.getFecha().equals(bille.getFecha())){
+					array.add(bille);
+				}
 			}
+			
+			if(!array.isEmpty()){
+				lista.put(b.getFecha(),array);
+				array.clear();
+			}else{
+				System.out.println("Fallo");
+			}
+			
 		}
-		lista.put(fecha, billetes);
+		
 		return lista;
 	}
 
