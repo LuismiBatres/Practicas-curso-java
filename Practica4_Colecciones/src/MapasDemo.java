@@ -12,6 +12,8 @@ public class MapasDemo {
 		estudiantes.put("Perez", "Jorge");
 		estudiantes.put("Gonzalez", "Andres");
 		
+		String prueba="hola";
+		
 		System.out.println("Tamaño: "+ estudiantes.size());
 		
 		for(Map.Entry<String, String> elemento: estudiantes.entrySet()) {
