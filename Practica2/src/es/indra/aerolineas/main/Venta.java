@@ -4,6 +4,7 @@
 package es.indra.aerolineas.main;
 import es.indra.aerolineas.beans.*;
 import es.indra.aerolineas.beans.impl.*;
+import es.indra.aerolineas.services.ReadFile;
 
 /**
  * @author josejarizav
@@ -36,6 +37,10 @@ public class Venta {
 		
 		Vuelo[] vuelosPasajero = {vuelos[0], vuelos[4]};
 		
+		ReadFile r=new ReadFile();
+		
+		r.retornarVuelos();
+		System.out.println("***************************************");
 		/*p.id=10;
 		p.dni="1050K";
 		p.nombre="Jose Julian";

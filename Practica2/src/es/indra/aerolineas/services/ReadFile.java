@@ -16,11 +16,14 @@ import java.util.List;
 public class ReadFile {
 	
 	public void retornarVuelos() {
-		Path path= Paths.get("C:/Users/aula2/repositorios/CursoJava/vuelos.txt");
-		//Path path =Paths.get("C:/Users/aula2/repositorios/CursoJava/vuelos1.txt");
+		Path path= Paths.get("C:/Users/aula3/repositorios/CursoJava/vuelos.txt");
+		//Path path =Paths.get("C:/Users/aula3/repositorios/CursoJava/vuelos1.txt");
 		try {
 			List<String>lista=Files.readAllLines(path);
-			System.out.println(lista);
+			//System.out.println(lista);
+			for(String s:lista) {
+				System.out.println(s);
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
