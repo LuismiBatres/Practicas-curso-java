@@ -1,8 +1,9 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class GenericsDesconocidos {
-
+	
 	public static void main(String[] args) {
 		List<Integer> listado= new ArrayList<>();
 		
@@ -27,6 +28,7 @@ public class GenericsDesconocidos {
 		for(int i=0;i<listadoInteger.size();i++) {
 			System.out.println(listadoInteger.get(i));
 		}
-	}
+		
+	} 
 
 }
