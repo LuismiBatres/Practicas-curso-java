@@ -65,7 +65,7 @@ public class Pasajero extends Persona {
 
 	@Override
 	public String toString() {
-		return id + ";" + nombre + ";" + apellido + ";" + dni;
+		return id + ";" + nombre + ";" + apellido + ";" + dni +";" ;
 	}
 
 	@Override
