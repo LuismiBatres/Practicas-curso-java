@@ -3,6 +3,7 @@
  */
 package es.indra.aerolineas.main;
 import java.io.IOException;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.Random;
 
 import es.indra.aerolineas.beans.*;
 import es.indra.aerolineas.beans.impl.*;
+import es.indra.aerolineas.services.WriteFile;
 
 /**
  * @author josejarizav
@@ -57,7 +59,7 @@ public class Venta {
 		ArrayList<Billete>billete=new ArrayList<>();
 		IAerolineas aa = new Aerolinea(10, "American Airlines",vuelos);
 		
-		
+		ArrayList<Pasajero>pasajeros=new ArrayList<>();
 		
 		Empleado emp=new Empleado();
 		emp.setNombre("Juan Alberto");
@@ -85,15 +87,34 @@ public class Venta {
 		p1.setVuelos(vuelosPasajero2);
 		
 
+		Pasajero p3 = new Pasajero();
+		List<Vuelo> vuelosPasajero3 = new ArrayList<>();
+		vuelosPasajero.add(vuelos.get(0));
+		vuelosPasajero.add(vuelos.get(4));
+		p3.setId(24);
+		p3.setDni("18");
+		p3.setNombre("Juan");
+		p3.setApellido("Perez");
+		p3.setVuelos(vuelosPasajero3);
 		
-		Map<String, List<Billete>> billetesEmitidos = new HashMap<>();
+		/*Map<String, List<Billete>> billetesEmitidos = new HashMap<>();
 		
 		billetesEmitidos.put("08/11/2018", generarBilletes("08/11/2018", p));
 		billetesEmitidos.put("01/01/2019", generarBilletes("01/01/2019", p));
 		
 		aa.setLista(billetesEmitidos);
 		
-		aa.verBilletesFecha("08/11/2018");
+		aa.verBilletesFecha("08/11/2018");*/
+		
+		
+		pasajeros.add(p1);
+		pasajeros.add(p);
+		pasajeros.add(p3);
+		
+		
+		WriteFile wr=new WriteFile();
+		wr.escribirPasajeros(pasajeros);
+		
 		/*aa.consultarVuelos("MAD");
 		p.id=10;
 		p.dni="1050K";

@@ -12,7 +12,7 @@ public class EntradaDatosConsola {
 		String mensaje=sc.nextLine();
 		
 		System.out.println("Introduce el numero de veces que quieres que aparezca");
-		int num=Integer.parseInt(sc.nextLine());
+		int num=sc.nextInt();
 		
 		for(int i=0;i<num;i++) {
 			System.out.println(mensaje);
