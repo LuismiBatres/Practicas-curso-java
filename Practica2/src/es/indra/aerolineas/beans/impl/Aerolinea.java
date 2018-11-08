@@ -23,17 +23,9 @@ public class Aerolinea implements IAerolineas {
 	
 	private int id;
 	private String nombre;
-	private Vuelo[] vuelos = new Vuelo[10];
-	private ArrayList<Billete> billetes=new ArrayList<Billete>();
-	
-	
-	public ArrayList<Billete> getBilletes() {
-		return billetes;
-	}
-
-	public void setBilletes(ArrayList<Billete> billetes) {
-		this.billetes = billetes;
-	}
+	private List<Vuelo> vuelos = new ArrayList<Vuelo>();
+	//private ArrayList<Billete> billetes=new ArrayList<Billete>();
+	private Map<String,List<Billete>>lista=new HashMap<String,List<Billete>>();
 
 	public Aerolinea() {		
 	}
@@ -43,12 +35,11 @@ public class Aerolinea implements IAerolineas {
 	 * @param nombre
 	 * @param vuelos
 	 */
-	public Aerolinea(int id, String nombre, Vuelo[] vuelos,ArrayList<Billete>billetes) {
+	public Aerolinea(int id, String nombre, List<Vuelo> vuelos) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.vuelos = vuelos;
-		this.billetes=billetes;
 	}
 
 	public int getId() {
@@ -67,18 +58,28 @@ public class Aerolinea implements IAerolineas {
 		this.nombre = nombre;
 	}
 
-	public Vuelo[] getVuelos() {
+	
+	public List<Vuelo> getVuelos() {
 		return vuelos;
 	}
 
-	public void setVuelos(Vuelo[] vuelos) {
+	public void setVuelos(List<Vuelo> vuelos) {
 		this.vuelos = vuelos;
+	}
+
+	public Map<String, List<Billete>> getLista() {
+		return lista;
+	}
+
+	public void setLista(Map<String, List<Billete>> lista) {
+		this.lista = lista;
 	}
 
 	@Override
 	public String toString() {
-		return "Aerolinea [id=" + id + ", nombre=" + nombre + ", vuelos=" + Arrays.toString(vuelos) + "]";
+		return "Aerolinea [id=" + id + ", nombre=" + nombre +"]";
 	}
+	
 	
 	@Override
 	public void consultarVuelos(String origen) {
@@ -144,32 +145,12 @@ public class Aerolinea implements IAerolineas {
 		Arr
 	}*/
 	
-	public void crearBillete(Persona p,String fecha,String asiento,Vuelo vuelo) {
-		Billete b=new Billete(p,fecha,asiento,vuelo);
-		this.billetes.add(b);
-	}
 	
-	public Map<String,ArrayList> cargarHashMap(ArrayList<Billete>billetes){
-		Map<String,ArrayList> lista= new HashMap<String,ArrayList>();
-		ArrayList<Billete>array=new ArrayList<>();
-		String fecha;
-		for(Billete b: billetes) {
-			for(Billete bille:billetes){
-				if(b.getFecha().equals(bille.getFecha())){
-					array.add(bille);
-				}
-			}
-			
-			if(!array.isEmpty()){
-				lista.put(b.getFecha(),array);
-				//array.clear();
-			}else{
-				System.out.println("Fallo");
-			}
-			
+	public void verBilletesFecha(String fechaBillete) {
+		List<Billete> billetePorDia = this.lista.get(fechaBillete);
+		for (Billete b : billetePorDia) {
+			System.out.println("\t" + b);
 		}
-		
-		return lista;
 	}
 
 }

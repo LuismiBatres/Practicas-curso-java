@@ -9,15 +9,16 @@ package es.indra.aerolineas.beans.impl;
  */
 public class Billete {
 	
-	private Persona persona;
+	private int id;
+	private Pasajero pasajero;
 	private String Fecha;
 	private String Asiento;
 	private Vuelo vuelo;
 	
 	
-	public Billete(Persona persona, String fecha, String asiento, Vuelo vuelo) {
+	public Billete(Pasajero pasajero, String fecha, String asiento, Vuelo vuelo) {
 		super();
-		this.persona = persona;
+		this.pasajero = pasajero;
 		Fecha = fecha;
 		Asiento = asiento;
 		this.vuelo = vuelo;
@@ -27,12 +28,22 @@ public class Billete {
 		
 	}
 
-	public Persona getPersona() {
-		return persona;
+	
+
+	public int getId() {
+		return id;
 	}
 
-	public void setPersona(Persona persona) {
-		this.persona = persona;
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Pasajero getPasajero() {
+		return pasajero;
+	}
+
+	public void setPasajero(Pasajero pasajero) {
+		this.pasajero = pasajero;
 	}
 
 	public String getFecha() {
@@ -61,7 +72,7 @@ public class Billete {
 	
 	@Override
 	public String toString() {
-		return "Billete [persona=" + persona + ", Fecha=" + Fecha + ", Asiento=" + Asiento + ", vuelo=" + vuelo + "]";
+		return "Billete [persona=" + pasajero + ", Fecha=" + Fecha + ", Asiento=" + Asiento + ", vuelo=" + vuelo + "]";
 	}
 
 	

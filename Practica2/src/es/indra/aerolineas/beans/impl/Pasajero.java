@@ -2,7 +2,7 @@
  * 
  */
 package es.indra.aerolineas.beans.impl;
-
+import java.util.List;
 /**
  * @author josejarizav
  *
@@ -13,7 +13,7 @@ public class Pasajero extends Persona {
 	
 	private int id;
 	
-	private Vuelo[] vuelos;
+	private List<Vuelo> vuelos;
 
 	/**
 	 * @param nombre
@@ -22,7 +22,7 @@ public class Pasajero extends Persona {
 	 * @param id
 	 * @param vuelos
 	 */
-	public Pasajero(int id, Vuelo[] vuelos) {
+	public Pasajero(int id,  List<Vuelo> vuelos) {
 		super();
 		this.id = id;
 		this.vuelos = vuelos;
@@ -55,12 +55,17 @@ public class Pasajero extends Persona {
 		this.id = id;
 	}
 
-	public Vuelo[] getVuelos() {
+	public  List<Vuelo> getVuelos() {
 		return vuelos;
 	}
 
-	public void setVuelos(Vuelo[] vuelos) {
+	public void setVuelos(List<Vuelo> vuelos) {
 		this.vuelos = vuelos;
+	}
+
+	@Override
+	public String toString() {
+		return "Pasajero [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + "]";
 	}
 
 	@Override

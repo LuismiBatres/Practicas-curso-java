@@ -4,7 +4,10 @@
 package es.indra.aerolineas.main;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import es.indra.aerolineas.beans.*;
 import es.indra.aerolineas.beans.impl.*;
@@ -15,13 +18,34 @@ import es.indra.aerolineas.beans.impl.*;
  */
 public class Venta {
 	
-	private static Vuelo[] creaVuelos() {
-		Vuelo[] vuelos = new Vuelo[10];
-		for (int i = 0; i < vuelos.length; i++) {	
-			int a = (int) (Math.random()*10+1);
-			vuelos[i] = new Vuelo(i,"SD" + a, "MAD","VLC", i * 10, true   );
+	private static List<Vuelo> creaVuelos() {
+		List<Vuelo> vuelos = new ArrayList<>();
+		for (int i = 0; i < 100; i++) {	
+			int a = new Random().nextInt(500);
+			vuelos.add(new Vuelo(i,"SD" + a, "MAD","VLC", i * 10, true   ));
 		}
 		return vuelos;
+	}
+	
+	private static List<Billete> generarBilletes(String fecha, Pasajero p){
+		List<Billete> billetes = new ArrayList<>();
+		
+		for (int i = 0; i < 10; i++) {
+			Billete billete = new Billete();
+			billete.setId(i);
+			billete.setFecha(fecha);
+			
+			char c1 = (char)new Random().nextInt(50);
+			char c2 = (char)new Random().nextInt(50);
+			
+			billete.setAsiento("" + c1 + c2 + new Random().nextInt(100) + new Random().nextInt(50));
+			billete.setPasajero(p);
+			billete.setVuelo(p.getVuelos().get(new Random().nextInt(p.getVuelos().size())));
+			
+			billetes.add(billete);
+		}
+		
+		return billetes;
 	}
 
 	/**
@@ -29,9 +53,9 @@ public class Venta {
 	 */
 	public static void main(String[] args) {
 
-		Vuelo[] vuelos = creaVuelos();
+		List<Vuelo> vuelos = creaVuelos();
 		ArrayList<Billete>billete=new ArrayList<>();
-		IAerolineas aa = new Aerolinea(10, "American Airlines",vuelos,billete);
+		IAerolineas aa = new Aerolinea(10, "American Airlines",vuelos);
 		
 		
 		
@@ -39,7 +63,9 @@ public class Venta {
 		emp.setNombre("Juan Alberto");
 		
 		Pasajero p = new Pasajero();
-		Vuelo[] vuelosPasajero = {vuelos[0], vuelos[4]};
+		List<Vuelo> vuelosPasajero = new ArrayList<>();
+		vuelosPasajero.add(vuelos.get(0));
+		vuelosPasajero.add(vuelos.get(4));
 		p.setId(10);
 		p.setDni("10");
 		p.setNombre("Jose Julian");
@@ -47,26 +73,27 @@ public class Venta {
 		p.setVuelos(vuelosPasajero);
 		
 		
-		String fecha1="12";
-		String asiento1="123";
-		Vuelo v=p.getVuelos()[0];
-		aa.crearBillete(p, fecha1, asiento1,v);
 		
-		String fecha2="12";
-		String asiento2="120";
-		Vuelo v2=p.getVuelos()[0];
-		aa.crearBillete(p, fecha2, asiento2,v2);
+		Pasajero p1 = new Pasajero();
+		List<Vuelo> vuelosPasajero2 = new ArrayList<>();
+		vuelosPasajero.add(vuelos.get(0));
+		vuelosPasajero.add(vuelos.get(4));
+		p1.setId(12);
+		p1.setDni("15");
+		p1.setNombre("Luismi");
+		p1.setApellido("Sanchez");
+		p1.setVuelos(vuelosPasajero2);
 		
-		Map<String,ArrayList> lista=aa.cargarHashMap(aa.getBilletes());
+
 		
-		for(Map.Entry<String, ArrayList> entry : lista.entrySet()) {
-			System.out.println("Fecha: "+ entry.getKey());
-			for(int i=0;i<entry.getValue().size();i++) {
-				System.out.println(entry.getValue().get(i).toString());
-				System.out.println("hola");
-			}
-		}
+		Map<String, List<Billete>> billetesEmitidos = new HashMap<>();
 		
+		billetesEmitidos.put("08/11/2018", generarBilletes("08/11/2018", p));
+		billetesEmitidos.put("01/01/2019", generarBilletes("01/01/2019", p));
+		
+		aa.setLista(billetesEmitidos);
+		
+		aa.verBilletesFecha("08/11/2018");
 		/*aa.consultarVuelos("MAD");
 		p.id=10;
 		p.dni="1050K";
