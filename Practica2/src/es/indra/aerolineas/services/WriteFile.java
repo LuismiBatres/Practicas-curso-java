@@ -6,7 +6,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
-import java.io.Writer;
 import java.util.ArrayList;
 
 import es.indra.aerolineas.beans.impl.Pasajero;
@@ -17,8 +16,8 @@ public class WriteFile {
 		BufferedWriter out = null;
 		try {
 			out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("fichero_pasajeros.txt"), "UTF-8"));
-			
-			// Escribimos linea a linea en el ficheroç
+			//out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:/Users/aula10/repositorios/fichero_pasajeros.txt"), "UTF-8"));
+			// Escribimos linea a linea en el fichero
 			System.out.println("Inicio de escritura");
 			for (Pasajero p : array) {
 				try {
