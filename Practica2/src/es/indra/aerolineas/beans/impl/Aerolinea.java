@@ -162,7 +162,7 @@ public class Aerolinea implements IAerolineas {
 			
 			if(!array.isEmpty()){
 				lista.put(b.getFecha(),array);
-				array.clear();
+				//array.clear();
 			}else{
 				System.out.println("Fallo");
 			}
